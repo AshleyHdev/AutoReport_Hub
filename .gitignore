@@ -1,0 +1,15 @@
+# 不要上傳虛擬環境與 node_modules
+venv/
+node_modules/
+
+# 不要上傳 Python 或 TypeScript 編譯檔案
+__pycache__/
+*.pyc
+*.pyo
+*.tsbuildinfo
+
+# 不要上傳環境設定檔
+.env
+
+# 不要上傳 VSCode 設定檔
+.vscode/
