@@ -20,24 +20,11 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
 
-app = FastAPI()
-
-# ✅ 啟用 CORS 設定 (這段是新增的)
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  # 或者設為 ["http://localhost:5173"] 更加安全
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
 # ✅ 載入環境變數
 load_dotenv()
 
 EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")  # 你的 Gmail
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")  # 你的應用程式密碼
-
-print("📧 EMAIL_ADDRESS:", EMAIL_ADDRESS)
-print("🔑 EMAIL_PASSWORD:", EMAIL_PASSWORD)
 
 if not EMAIL_ADDRESS or not EMAIL_PASSWORD:
     raise RuntimeError("❌ 環境變數未設定，請確認 .env 內包含 EMAIL_ADDRESS 和 EMAIL_PASSWORD")
